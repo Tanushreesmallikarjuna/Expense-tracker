@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Flask App{% endblock %}</title>
+</head>
+<body>
+
+<h1>Finance Tracker</h1>
+<hr>
+
+<!-- Flash messages -->
+{% with messages = get_flashed_messages() %}
+  {% for message in messages %}
+    <p style="color:red;">{{ message }}</p>
+  {% endfor %}
+{% endwith %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

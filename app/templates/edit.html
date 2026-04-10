@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Expense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h1>💸 Expense Tracker</h1>
+    <a href="{{ url_for('auth.logout') }}">Logout</a>
+</nav>
+
+<div class="edit-container">
+    <div class="edit-card">
+        <h2>✏️ Edit Expense</h2>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash success">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="/edit/{{ task.id }}" method="POST">
+            <input type="text" name="title" value="{{ task.title }}" required>
+            <input type="number" name="amount" value="{{ task.amount }}" step="0.01" required>
+            <select name="category">
+                {% for cat in categories %}
+                    <option value="{{ cat }}" {% if cat == task.category %}selected{% endif %}>
+                        {{ cat }}
+                    </option>
+                {% endfor %}
+            </select>
+            <button type="submit">Update</button>
+        </form>
+
+        <a href="{{ url_for('tasks.dashboard') }}" class="btn-cancel">← Cancel</a>
+    </div>
+</div>
+
+</body>
+</html>

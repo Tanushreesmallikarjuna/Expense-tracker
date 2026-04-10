@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h1>💸 Expense Tracker</h1>
+    <a href="{{ url_for('auth.logout') }}">Logout</a>
+</nav>
+
+<div class="container">
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="flash success">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Total Banner -->
+    <div class="total-banner">
+        <h3>Total Spent</h3>
+        <h2>₹{{ total|round(2) }}</h2>
+    </div>
+
+    <!-- Add Expense -->
+    <div class="card">
+        <h4>➕ Add Expense</h4>
+        <form action="/add" method="POST">
+            <input type="text" name="title" placeholder="Title" required>
+            <input type="number" name="amount" placeholder="Amount" step="0.01" required>
+            <select name="category">
+                {% for cat in categories %}
+                    <option value="{{ cat }}">{{ cat }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+    <!-- Category Breakdown -->
+    <div class="card">
+        <h4>📊 By Category</h4>
+        <ul class="category-list">
+            {% for cat, amt in category_totals.items() %}
+                <li>{{ cat }}: ₹{{ amt|round(2) }}</li>
+            {% else %}
+                <li>No expenses yet!</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    
+
+    <!-- Expense List -->
+    <div class="card">
+        <h4>🧾 All Expenses</h4>
+        {% for task in tasks %}
+            <div class="expense-item">
+                <div class="expense-info">
+                    <h4>{{ task.title }}
+                        <span class="badge">{{ task.category }}</span>
+                    </h4>
+                    <span>{{ task.date.strftime('%d %b %Y') }}</span>
+                </div>
+                <div style="display:flex; align-items:center;">
+                    <span class="expense-amount">₹{{ task.amount }}</span>
+                    <div class="expense-actions">
+                        <a href="/edit/{{ task.id }}" class="btn-edit">Edit</a>
+                        <a href="/delete/{{ task.id }}" class="btn-delete"> Delete</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p class="no-expenses">No expenses yet! Add one above ☝️</p>
+        {% endfor %}
+    </div>
+
+</div>
+</body>
+</html>

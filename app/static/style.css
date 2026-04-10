@@ -1,0 +1,353 @@
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #283d5d;
+    color: #333;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+    background-color: #2c3e50;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    color: white;
+    font-size: 22px;
+}
+
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: #e74c3c;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+nav a:hover {
+    background-color: #c0392b;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ===== CARDS ===== */
+.card {
+    background-color: rgb(230, 228, 124);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.card h2, .card h3, .card h4 {
+    margin-bottom: 15px;
+    color: #062c51;
+}
+
+/* ===== TOTAL BANNER ===== */
+.total-banner {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.total-banner h3 {
+    font-size: 16px;
+    opacity: 0.85;
+    margin-bottom: 8px;
+}
+
+.total-banner h2 {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* ===== FORM ===== */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+select {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 150px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: #3498db;
+}
+
+button[type="submit"] {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+    background-color: #27ae60;
+}
+
+/* ===== CATEGORY BREAKDOWN ===== */
+.category-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.category-list li {
+    background-color: #eaf4fb;
+    color: #2980b9;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ===== EXPENSE LIST ===== */
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.expense-item:last-child {
+    border-bottom: none;
+}
+
+.expense-info h4 {
+    font-size: 15px;
+    color: #2c3e50;
+    margin-bottom: 4px;
+}
+
+.expense-info span {
+    font-size: 12px;
+    color: #2c3e50;
+}
+
+.expense-amount {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e74c3c;
+    margin-right: 20px;
+}
+
+.expense-actions a {
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-left: 6px;
+}
+
+.btn-edit {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #ec7028;
+}
+
+.btn-delete {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c61d0a;
+}
+
+/* ===== CATEGORY BADGE ===== */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 8px;
+    background-color: #eaf4fb;
+    color: #61c0ff;
+}
+
+/* ===== AUTH PAGES (login/register) ===== */
+.auth-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.auth-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.auth-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-size: 24px;
+}
+
+.auth-card form {
+    flex-direction: column;
+}
+
+.auth-card input {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.auth-card button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.auth-card p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #777;
+}
+
+.auth-card a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.auth-card a:hover {
+    text-decoration: underline;
+}
+
+/* ===== FLASH MESSAGES ===== */
+.flash {
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.flash.success {
+    background-color: #d5f5e3;
+    color: #1e8449;
+    border-left: 4px solid #2ecc71;
+}
+
+.flash.error {
+    background-color: #fadbd8;
+    color: #922b21;
+    border-left: 4px solid #e74c3c;
+}
+
+/* ===== EDIT PAGE ===== */
+.edit-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.edit-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.edit-card h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.edit-card form {
+    flex-direction: column;
+}
+
+.edit-card input,
+.edit-card select {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.edit-card button {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.btn-cancel {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #999;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-cancel:hover {
+    color: #e74c3c;
+}
+
+/* ===== NO EXPENSES MESSAGE ===== */
+.no-expenses {
+    text-align: center;
+    color: #2c3e50;
+    padding: 30px 0;
+    font-size: 15px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    form {
+        flex-direction: column;
+    }
+
+    .expense-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .total-banner h2 {
+        font-size: 28px;
+    }
+}
